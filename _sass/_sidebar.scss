@@ -93,9 +93,20 @@
     max-width: 175px;
     border-radius: 50%;
 
-    @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+     @include breakpoint($large) {
+       padding: 5px;
+       border: 1px solid $border-color;
+    }
+  }
+  // Adjustments for mobile
+  @media (max-width: 925px) { // 768px
+    display: block; // Change to block to allow centering
+    text-align: center; // Center the image horizontally
+    margin: 0 auto; // Add spacing and centering
+    width: 200px; 
+    img {
+      width: 150px; // Larger size for mobile
+       // Keep the image within the container
     }
   }
 }

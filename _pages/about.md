@@ -7,6 +7,7 @@ redirect_from:
   - /about.html
 ---
 
+<h1>I am Serena Cofano, </h1>
 I am a **Ph.D. student** at the IMT Lucca and the University of Genoa.
 
 My research area is **Software Supply Chain Security**.
