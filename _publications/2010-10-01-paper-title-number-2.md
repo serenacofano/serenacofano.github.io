@@ -2,7 +2,7 @@
 title: "The Impact of SBOM Generators on Vulnerability Assessment in Python: A Comparison and a Novel Approach"
 collection: publications
 category: conferences
-permalink: /publication/2010-10-01-paper-title-number-2
+permalink: /files/2409.06390v1.pdf
 # excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
 date: 2024/9/10
 venue: 'ACNS 2025'

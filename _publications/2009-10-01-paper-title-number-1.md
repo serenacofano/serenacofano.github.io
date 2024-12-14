@@ -2,7 +2,7 @@
 title: "SBOM Generation Tools in the Python Ecosystem: an In-Detail Analysis"
 collection: publications
 category: conferences
-permalink: /publication/2009-10-01-paper-title-number-1
+permalink: /files/2409.01214v1.pdf
 # excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
 date: 2024/9/2
 venue: 'TrustCom2024'

@@ -21,8 +21,9 @@ repository               : "serenacofano/serenacofano.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpeg"
+  avatar           : "profile-2.jpg"
   name             : "Serena Cofano"
+  home             : "Genoa, Italy"
   pronouns         : # example: "she/her"  
   bio              : "PhD Student in Cybersecurity"
   location         : "Stockholm, Sweden"

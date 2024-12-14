@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
 /* ==========================================================================
    Variables
    ========================================================================== */
@@ -12,9 +14,13 @@ $doc-font-size              : 16;
 $paragraph-indent           : false; // true, false (default)
 $indent-var                 : 1.3em;
 
+/*imported fonts */
+$questrial                  : 'Questrial', sans-serif;
+$questrial-serif            : 'Questrial', serif;
+
 /* system typefaces */
-$serif                      : Georgia, Times, serif;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+$serif                      : $questrial-serif; //Georgia, Times, serif;
+$sans-serif                 : $questrial; //-apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 $monospace                  : Monaco, Consolas, "Lucida Console", monospace;
 
 /* sans serif typefaces */
@@ -54,6 +60,19 @@ $sidebar-link-max-width     : 250px;
 /*
    Colors
    ========================================================================== */
+/* new palette */
+$eggshell: #faf3ddff;
+$beige: #e1e4cbff;
+$tea-green: #c8d5b9ff;
+$celadon: #accbb1ff;
+$cambridge-blue: #8fc0a9ff;
+$cambridge-blue-2: #7cb8aaff;
+$verdigris: #68b0abff;
+$keppel: #61a397ff;
+$zomp: #599682ff;
+$light-viridian: #52896E;
+$viridian: #4a7c59ff;
+
 
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
@@ -62,10 +81,12 @@ $light-gray                 : mix(#fff, $gray, 50%);
 $lighter-gray               : mix(#fff, $gray, 90%);
 
 $body-color                 : #fff;
-$background-color           : #fff;
+$background-color           : $eggshell;
 $code-background-color      : #fafafa;
+$footer-background-color    : $viridian;
 $code-background-color-dark : $light-gray;
 $text-color                 : $dark-gray;
+$footer-text-color          : mix(#fff, $eggshell, 25%);
 $border-color               : $lighter-gray;
 
 $primary-color              : #7a8288;
@@ -102,11 +123,12 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $info-color;
-$link-color-hover           : mix(#000, $link-color, 25%);
-$link-color-visited         : mix(#fff, $link-color, 25%);
-$masthead-link-color        : $primary-color;
-$masthead-link-color-hover  : mix(#000, $primary-color, 25%);
+$link-color                 : $viridian;
+$link-color-hover           : mix(#000, $viridian, 25%);
+$link-color-visited         : mix(#fff, $viridian, 25%);
+$masthead-link-color        : $viridian;
+$masthead-link-color-hover  : mix(#000, $viridian, 25%);
+
 
 
 /*
