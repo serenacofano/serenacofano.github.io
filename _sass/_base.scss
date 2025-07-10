@@ -116,7 +116,12 @@ a {
     @extend %tab-focus;
   }
 
-  &:hover,
+  &:hover {
+    color: #FF6B6B; /* Choose your hover color */
+  text-decoration: underline; /* Optional */
+  transition: color 0.3s ease;
+  }
+  
   &:active {
     outline: 0;
   }

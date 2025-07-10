@@ -72,6 +72,24 @@ $keppel: #61a397ff;
 $zomp: #599682ff;
 $light-viridian: #52896E;
 $viridian: #4a7c59ff;
+$mint: #E9FBE2;
+$dark-mint: #8fb996;
+$less-dark-mint: #415d43;
+$very-dark-mint: #111d13;
+
+// Base colors
+$mint-light: #D5F2D7;
+$mint-lighter: #E9FBE2;
+
+// Text and foreground
+$text-dark: #2F3E34;
+
+// Links
+$link: #FF6B6B;
+$link-hover: #FF6B6B;
+
+// Accents and buttons
+$accent: #264653;
 
 
 $gray                       : #7a8288;
@@ -81,12 +99,12 @@ $light-gray                 : mix(#fff, $gray, 50%);
 $lighter-gray               : mix(#fff, $gray, 90%);
 
 $body-color                 : #fff;
-$background-color           : $eggshell;
+$background-color           : $mint-light;
 $code-background-color      : #fafafa;
-$footer-background-color    : $viridian;
+$footer-background-color    : $mint-light;
 $code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
-$footer-text-color          : mix(#fff, $eggshell, 25%);
+$text-color                 : $text-dark;
+$footer-text-color          : $gray;
 $border-color               : $lighter-gray;
 
 $primary-color              : #7a8288;
@@ -123,11 +141,11 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $viridian;
-$link-color-hover           : mix(#000, $viridian, 25%);
-$link-color-visited         : mix(#fff, $viridian, 25%);
-$masthead-link-color        : $viridian;
-$masthead-link-color-hover  : mix(#000, $viridian, 25%);
+$link-color                 : $less-dark-mint;
+$link-color-hover           : $link-hover;
+$link-color-visited         : mix(#fff, $link, 25%);
+$masthead-link-color        : $less-dark-mint;
+$masthead-link-color-hover  : $link-hover;
 
 
 
