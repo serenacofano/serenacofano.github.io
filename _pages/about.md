@@ -1,12 +1,13 @@
 ---
 permalink: /
-title: "Hi!"
+title: "Serena Cofano"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
+<h1>Hi!</h1>
 <h1> I am Serena Cofano, </h1>
 I am a **Ph.D. student** at the **[IMT School for Advanced Studies Lucca](https://www.imtlucca.it/en)** and the **[University of Genoa](https://unige.it/en)**.
 
