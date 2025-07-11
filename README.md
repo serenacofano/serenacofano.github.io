@@ -52,6 +52,19 @@ Next, run the container:
 docker run -p 4000:4000 --rm -v $(pwd):/usr/src/app jekyll-site
 ```
 
+Fixed
+
+```bash
+docker volume create jekyll_gems
+
+docker run --rm -p 4000:4000 \
+  -v $(pwd):/usr/src/app \
+  -v jekyll_gems:/usr/src/app/vendor/bundle \
+  -w /usr/src/app \
+  jekyll-site \
+  sh -c "bundle config set path 'vendor/bundle' && bundle install && bundle exec jekyll serve --host 0.0.0.0"
+```
+
 # Maintenance
 
 Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
