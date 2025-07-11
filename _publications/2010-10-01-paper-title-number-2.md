@@ -12,6 +12,12 @@ paperurls: 'https://link.springer.com/chapter/10.1007/978-3-031-95764-2_19'
 pdf: /files/978-3-031-95764-2_19.pdf
 slide: /files/SBOM_impact_slide.pdf
 code: 'https://osf.io/9agz7/?view_only=1c4704de735b46de8595c40dfa4fb1ad'
+authors: 
+    - Giacomo Benedetti
+    - Serena Cofano
+    - Alessandro Brighente
+    - Mauro Conti
+
 
 ---
 

@@ -37,15 +37,23 @@
   padding: 6px 12px;
   margin-right: 5px;
   border-radius: 5px;
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 0.9em;
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .pub-button:hover {
-  background-color: #91b895;
+  background-color: #FF6B6B;
+  transition: 0.4s;
+  color: white !important;
 }
+
+.pub-authors {
+  margin: 0.2em 0 0.8em;
+  font-style: italic;
+}
+
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;

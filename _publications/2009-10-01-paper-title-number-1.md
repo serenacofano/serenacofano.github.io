@@ -12,6 +12,10 @@ paperurls: 'https://ieeexplore.ieee.org/abstract/document/10945067'
 pdf: /files/SBOM_Generation_Tools_in_the_Python_Ecosystem_an_In-Detail_Analysis.pdf
 slide: '/files/SBOM_Gen_slide.pdf'
 code: 'https://github.com/serenacofano/SBOM-python-ecosystem'
+authors: 
+    - Serena Cofano
+    - Giacomo Benedetti
+    - Matteo Dell'Amico
 
 ---
 
