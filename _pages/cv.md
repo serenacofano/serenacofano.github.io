@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,6 +8,10 @@ redirect_from:
 ---
 
 {% include base_path %}
+Here are some of my main activities. 
+
+For a complete view of my CV, look here!  
+<a class="pub-button" href="../files/Serena_Cofano_CV.pdf" target="_blank">📄 CV</a>
 
 Education
 ======
