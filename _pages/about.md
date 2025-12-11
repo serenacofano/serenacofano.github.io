@@ -9,7 +9,7 @@ redirect_from:
 
 <h1>Hi!</h1>
 <h1> I am Serena Cofano, </h1>
-I am a **Ph.D. student** at the **[IMT School for Advanced Studies Lucca](https://www.imtlucca.it/en)** and the **[University of Genoa](https://unige.it/en)**.
+I am a **Ph.D. Candidate** at the **[IMT School for Advanced Studies Lucca](https://www.imtlucca.it/en)** and the **[University of Genoa](https://unige.it/en)**.
 
 My research area is **Software Supply Chain Security**.
 
