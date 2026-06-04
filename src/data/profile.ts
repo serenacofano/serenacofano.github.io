@@ -4,7 +4,7 @@ export const profile = {
   location: 'Belgium (open to remote)',
   email: 'cofanoserena@gmail.com',
   photo: '/profile.jpeg',
-  cv: '/files/cv-cofano.pdf',
+  cv: '/files/cofano-serena-cv-2.pdf',
 
   links: {
     github: 'https://github.com/serenacofano',
