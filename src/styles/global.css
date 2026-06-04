@@ -4,23 +4,39 @@
 @theme {
   --font-sans: 'Space Grotesk', system-ui, sans-serif;
 
-  --color-forest-950: #0a1209;
-  --color-forest-900: #0f1a12;
-  --color-forest-800: #152018;
-  --color-forest-700: #1c2e1e;
-  --color-forest-600: #243825;
-  --color-moss-700: #2d5a27;
-  --color-moss-600: #3a7033;
-  --color-moss-500: #4a8c41;
-  --color-amber-500: #c8861a;
-  --color-amber-400: #e8a838;
-  --color-amber-300: #f0be5e;
-  --color-amber-200: #f7d98c;
-  --color-sage-100: #e8f0e5;
-  --color-sage-200: #c0d4bc;
-  --color-sage-300: #96b292;
-  --color-sage-400: #6d8e69;
-  --color-sage-500: #4a6646;
+  /* Backgrounds - mint green */
+  --color-mint-50:  #f0faf1;
+  --color-mint-100: #e9fbe2;
+  --color-mint-200: #d5f2d7;
+  --color-mint-300: #c8d5b9;
+
+  /* Text - dark forest green */
+  --color-ink-900: #111d13;
+  --color-ink-700: #2f3e34;
+  --color-ink-600: #3d5240;
+  --color-ink-500: #415d43;
+  --color-ink-400: #678a6a;
+  --color-ink-300: #8fb996;
+  --color-ink-200: #accbb1;
+
+  /* Forest green */
+  --color-forest-900: #264653;
+  --color-forest-800: #2f3e34;
+  --color-forest-700: #4a7c59;
+  --color-forest-600: #52896e;
+  --color-forest-400: #68b0ab;
+  --color-forest-200: #accbb1;
+  --color-forest-100: #c8d5b9;
+  --color-forest-50:  #e9fbe2;
+
+  /* Coral accent */
+  --color-coral-700: #cc3333;
+  --color-coral-600: #e85555;
+  --color-coral-500: #ff6b6b;
+  --color-coral-400: #ff8888;
+  --color-coral-200: #ffd0d0;
+  --color-coral-100: #fff0f0;
+  --color-coral-50:  #fff8f8;
 }
 
 html {
