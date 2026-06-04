@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { profile } from '../data/profile.ts';
+import WorldMap from '../components/WorldMap.astro';
+import { profile, mapLocations } from '../data/profile.ts';
 
 const pubs = await getCollection('publications');
 const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -13,8 +14,8 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <span class="font-semibold tracking-tight text-ink-900">Serena Cofano</span>
       <div class="flex items-center gap-6 text-sm">
-        <a href="#publications" class="text-ink-500 hover:text-coral-600 transition-colors hidden sm:block">Publications</a>
         <a href="#experience" class="text-ink-500 hover:text-coral-600 transition-colors hidden sm:block">Experience</a>
+        <a href="#publications" class="text-ink-500 hover:text-coral-600 transition-colors hidden sm:block">Publications</a>
         <a href="#activities" class="text-ink-500 hover:text-coral-600 transition-colors hidden sm:block">Activities</a>
         <a
           href={profile.cv}
@@ -34,7 +35,7 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
       <div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
 
         <!-- Text -->
-        <div class="flex-1 space-y-6">
+        <div class="flex-1 space-y-6 hero-stagger">
           <div>
             <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-ink-900 leading-none">
               Serena<br />Cofano
@@ -87,7 +88,7 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
         </div>
 
         <!-- Photo -->
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0 hero-item" style="animation-delay: 0.2s">
           <div class="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden ring-4 ring-forest-800 ring-offset-8 ring-offset-mint-200">
             <img src={profile.photo} alt="Serena Cofano" class="w-full h-full object-cover" />
           </div>
@@ -96,14 +97,82 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
       </div>
     </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="bg-mint-100 py-20">
+    <!-- MAP -->
+    <section class="bg-mint-100 py-12">
       <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-ink-900 mb-2">Publications</h2>
-        <p class="text-ink-400 text-sm mb-10">Research on software supply chain security, SBOM, and vulnerability assessment.</p>
+        <div class="reveal">
+          <WorldMap locations={mapLocations} />
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE + EDUCATION -->
+    <section id="experience" class="py-20">
+      <div class="max-w-5xl mx-auto px-6 space-y-14">
+
+        <!-- Experience -->
+        <div>
+          <h2 class="text-3xl font-bold text-ink-900 mb-8 reveal">Experience</h2>
+          <div class="space-y-7">
+            {profile.experience.map((exp, i) => (
+              <div class="relative border-l-2 border-forest-700 pl-6 space-y-1 group reveal" style={`--reveal-delay: ${i * 80}ms`}>
+                <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-forest-700 ring-2 ring-mint-200 group-hover:bg-coral-500 transition-all duration-300"></span>
+                <p class="text-coral-600 text-xs font-semibold tracking-widest uppercase">{exp.period}</p>
+                <h3 class="text-ink-900 font-semibold text-base">{exp.role}</h3>
+                <p class="text-ink-500 text-sm">{exp.org}</p>
+                <p class="text-ink-400 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h2 class="text-3xl font-bold text-ink-900 mb-8 reveal">Education</h2>
+          <div class="space-y-7">
+            {profile.education.map((edu, i) => (
+              <div class="relative border-l-2 border-forest-700 pl-6 space-y-1 group reveal" style={`--reveal-delay: ${i * 80}ms`}>
+                <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-forest-700 ring-2 ring-mint-200 group-hover:bg-coral-500 transition-all duration-300"></span>
+                <p class="text-coral-600 text-xs font-semibold tracking-widest uppercase">{edu.year}</p>
+                <h3 class="text-ink-900 font-semibold text-base">{edu.degree}</h3>
+                <p class="text-ink-500 text-sm">{edu.institution}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="bg-mint-100 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-ink-900 mb-10 reveal">Skills</h2>
+        <div class="grid sm:grid-cols-3 gap-8">
+          {Object.entries(profile.skills).map(([category, items], i) => (
+            <div class="reveal" style={`--reveal-delay: ${i * 100}ms`}>
+              <h3 class="text-coral-600 font-semibold text-xs uppercase tracking-widest mb-4">{category}</h3>
+              <div class="flex flex-wrap gap-2">
+                {(items as string[]).map((skill) => (
+                  <span class="bg-white border border-mint-300 text-ink-700 text-sm px-3 py-1.5 rounded-md">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-ink-900 mb-2 reveal">Publications</h2>
+        <p class="text-ink-400 text-sm mb-10 reveal" style="--reveal-delay: 80ms">Research on software supply chain security, SBOM, and vulnerability assessment.</p>
         <div class="space-y-4">
-          {publications.map((pub) => (
-            <article class="bg-white rounded-xl p-6 border border-mint-300 hover:border-forest-700/30 transition-colors">
+          {publications.map((pub, i) => (
+            <article class="bg-white rounded-xl p-6 border border-mint-300 hover:border-forest-700/30 transition-colors reveal" style={`--reveal-delay: ${i * 120}ms`}>
               <div class="flex flex-wrap gap-3 items-center mb-3">
                 <span class="bg-coral-100 text-coral-700 text-xs font-semibold px-2.5 py-1 rounded-md border border-coral-200">
                   {pub.data.venue}
@@ -122,13 +191,13 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
               </p>
               <div class="flex flex-wrap gap-2">
                 {pub.data.pdf && (
-                  <a href={pub.data.pdf} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-mint-200 hover:bg-mint-100 text-ink-600 transition-colors border border-mint-300">PDF</a>
+                  <a href={pub.data.pdf} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-mint-100 hover:bg-mint-200 text-ink-600 transition-colors border border-mint-300">PDF</a>
                 )}
                 {pub.data.slides && (
-                  <a href={pub.data.slides} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-mint-200 hover:bg-mint-100 text-ink-600 transition-colors border border-mint-300">Slides</a>
+                  <a href={pub.data.slides} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-mint-100 hover:bg-mint-200 text-ink-600 transition-colors border border-mint-300">Slides</a>
                 )}
                 {pub.data.code && (
-                  <a href={pub.data.code} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-mint-200 hover:bg-mint-100 text-ink-600 transition-colors border border-mint-300">Code ↗</a>
+                  <a href={pub.data.code} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-mint-100 hover:bg-mint-200 text-ink-600 transition-colors border border-mint-300">Code ↗</a>
                 )}
                 {pub.data.doi && (
                   <a href={pub.data.doi} target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-md bg-forest-50 hover:bg-forest-100 text-forest-800 transition-colors border border-forest-200">DOI ↗</a>
@@ -140,67 +209,10 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
       </div>
     </section>
 
-    <!-- EXPERIENCE + EDUCATION -->
-    <section id="experience" class="py-20">
-      <div class="max-w-5xl mx-auto px-6 space-y-14">
-
-        <!-- Experience -->
-        <div>
-          <h2 class="text-3xl font-bold text-ink-900 mb-8">Experience</h2>
-          <div class="space-y-7">
-            {profile.experience.map((exp) => (
-              <div class="border-l-2 border-forest-700 pl-5 space-y-1">
-                <p class="text-coral-600 text-xs font-semibold tracking-widest uppercase">{exp.period}</p>
-                <h3 class="text-ink-900 font-semibold text-[15px]">{exp.role}</h3>
-                <p class="text-ink-500 text-sm">{exp.org}</p>
-                <p class="text-ink-400 text-sm leading-relaxed">{exp.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div>
-          <h2 class="text-3xl font-bold text-ink-900 mb-8">Education</h2>
-          <div class="space-y-7">
-            {profile.education.map((edu) => (
-              <div class="border-l-2 border-forest-700 pl-5 space-y-1">
-                <p class="text-coral-600 text-xs font-semibold tracking-widest uppercase">{edu.year}</p>
-                <h3 class="text-ink-900 font-semibold text-[15px]">{edu.degree}</h3>
-                <p class="text-ink-500 text-sm">{edu.institution}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="bg-mint-100 py-20">
-      <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-ink-900 mb-10">Skills</h2>
-        <div class="grid sm:grid-cols-3 gap-8">
-          {Object.entries(profile.skills).map(([category, items]) => (
-            <div>
-              <h3 class="text-coral-600 font-semibold text-xs uppercase tracking-widest mb-4">{category}</h3>
-              <div class="flex flex-wrap gap-2">
-                {(items as string[]).map((skill) => (
-                  <span class="bg-white border border-mint-300 text-ink-700 text-sm px-3 py-1.5 rounded-md">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <!-- ACTIVITIES -->
-    <section id="activities" class="py-20">
+    <section id="activities" class="bg-mint-100 py-20">
       <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-ink-900 mb-10">Activities</h2>
+        <h2 class="text-3xl font-bold text-ink-900 mb-10 reveal">Activities</h2>
 
         <div class="grid md:grid-cols-2 gap-12">
           <!-- Conferences -->
@@ -260,14 +272,14 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
     </section>
 
     <!-- BEYOND THE LAB -->
-    <section class="bg-mint-100 py-20">
+    <section class="py-20">
       <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-ink-900 mb-2">Beyond the Lab</h2>
-        <p class="text-ink-400 text-sm mb-10">Research is what I do. Curiosity is who I am.</p>
+        <h2 class="text-3xl font-bold text-ink-900 mb-2 reveal">Beyond the Lab</h2>
+        <p class="text-ink-400 text-sm mb-10 reveal" style="--reveal-delay: 80ms">Research is what I do. Curiosity is who I am.</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
           <!-- Languages -->
-          <div class="bg-white border border-mint-300 rounded-xl p-5 hover:border-forest-700/30 transition-colors">
+          <div class="bg-white border border-mint-300 rounded-xl p-5 hover:border-forest-700/30 transition-colors reveal">
             <div class="text-forest-700 mb-3">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -287,7 +299,8 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
             href={profile.links.tryhackme}
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-white border border-mint-300 rounded-xl p-5 hover:border-forest-700/30 transition-colors block"
+            class="bg-white border border-mint-300 rounded-xl p-5 hover:border-forest-700/30 transition-colors block reveal"
+            style="--reveal-delay: 100ms"
           >
             <div class="text-forest-700 mb-3">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -300,7 +313,7 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
           </a>
 
           <!-- Hiking -->
-          <div class="bg-white border border-mint-300 rounded-xl p-5 hover:border-forest-700/30 transition-colors">
+          <div class="bg-white border border-mint-300 rounded-xl p-5 hover:border-forest-700/30 transition-colors reveal" style="--reveal-delay: 200ms">
             <div class="text-forest-700 mb-3">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M3 20l5-9 3.5 4 3-5L19 20H3z"/>
@@ -323,4 +336,16 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
       </div>
     </footer>
   </main>
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </Layout>

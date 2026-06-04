@@ -1,3 +1,52 @@
+export interface MapLocation {
+  coords: [number, number]; // [lat, lng]
+  city: string;
+  items: string[];
+}
+
+export const mapLocations: MapLocation[] = [
+  {
+    coords: [44.4056, 8.9463],
+    city: 'Genoa, Italy',
+    items: ['Home', 'BSc & MSc — University of Genoa', 'PhD Researcher — University of Genoa', 'Cybersecurity Consultant — CINI', 'Front-End Developer — Talos srl', 'Junior Software Developer — Aizoon'],
+  },
+  {
+    coords: [43.8429, 10.5027],
+    city: 'Lucca, Italy',
+    items: ['PhD in Cybersecurity — IMT School for Advanced Studies'],
+  },
+  {
+    coords: [59.3293, 18.0686],
+    city: 'Stockholm, Sweden',
+    items: ['Visiting PhD Student — KTH Royal Institute of Technology', 'KTH Workshop on the Software Supply Chain 2025'],
+  },
+  {
+    coords: [48.1351, 11.5820],
+    city: 'Munich, Germany',
+    items: ['ACNS 2025 — Applied Cryptography and Network Security'],
+  },
+  {
+    coords: [18.2528, 109.5118],
+    city: 'Sanya, China',
+    items: ['IEEE TrustCom 2024'],
+  },
+  {
+    coords: [41.1171, 16.8719],
+    city: 'Bari, Italy',
+    items: ['ITASEC23 — Italian Conference on Cybersecurity'],
+  },
+  {
+    coords: [48.2082, 16.3738],
+    city: 'Vienna, Austria',
+    items: ['Summer School on AI and Cybersecurity — TU Wien 2025'],
+  },
+  {
+    coords: [50.8503, 4.3517],
+    city: 'Belgium',
+    items: ['Current base'],
+  },
+];
+
 export const profile = {
   name: 'Serena Cofano',
   tagline: 'PhD in Cybersecurity · Software Engineer',

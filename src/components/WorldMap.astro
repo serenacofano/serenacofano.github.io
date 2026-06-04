@@ -1,0 +1,112 @@
+---
+import 'maplibre-gl/dist/maplibre-gl.css';
+import type { MapLocation } from '../data/profile.ts';
+
+interface Props {
+  locations: MapLocation[];
+}
+const { locations } = Astro.props;
+---
+
+<div
+  id="world-map"
+  class="w-full h-[340px] md:h-[420px] rounded-xl overflow-hidden border border-mint-300"
+  data-locations={JSON.stringify(locations)}
+></div>
+
+<style is:global>
+  .map-pin-dot {
+    width: 14px;
+    height: 14px;
+    background: #ff6b6b;
+    border: 2.5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    transform-origin: center;
+  }
+  .map-pin-dot:hover {
+    transform: scale(1.5);
+  }
+  .maplibregl-popup-content {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    padding: 12px 14px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #c8d5b9;
+    min-width: 180px;
+  }
+  .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+    border-top-color: #c8d5b9;
+  }
+  .maplibregl-ctrl-group {
+    border-radius: 8px !important;
+    overflow: hidden;
+  }
+  .maplibregl-ctrl-attrib {
+    font-size: 10px !important;
+  }
+</style>
+
+<script>
+  import maplibregl from 'maplibre-gl';
+
+  interface Location {
+    coords: [number, number];
+    city: string;
+    items: string[];
+  }
+
+  const container = document.getElementById('world-map') as HTMLDivElement;
+  const locations: Location[] = JSON.parse(container.dataset.locations!);
+
+  const map = new maplibregl.Map({
+    container,
+    style: 'https://tiles.openfreemap.org/styles/bright',
+    scrollZoom: false,
+    attributionControl: false,
+  });
+
+  map.addControl(
+    new maplibregl.AttributionControl({ compact: true }),
+    'bottom-right'
+  );
+  map.addControl(
+    new maplibregl.NavigationControl({ showCompass: false }),
+    'top-right'
+  );
+
+  map.on('load', () => {
+    const bounds = new maplibregl.LngLatBounds();
+
+    locations.forEach((loc) => {
+      const [lat, lng] = loc.coords;
+      bounds.extend([lng, lat]);
+
+      const wrapper = document.createElement('div');
+      wrapper.style.cssText = 'width:14px;height:14px;';
+
+      const dot = document.createElement('div');
+      dot.className = 'map-pin-dot';
+      wrapper.appendChild(dot);
+
+      const popupHtml = `
+        <p style="font-weight:600;color:#2f3e34;margin:0 0 6px;font-size:13px">${loc.city}</p>
+        ${loc.items.map(item => `
+          <p style="color:#415d43;font-size:12px;margin:3px 0;padding-top:3px;border-top:1px solid #e9fbe2">${item}</p>
+        `).join('')}
+      `;
+
+      new maplibregl.Marker({ element: wrapper })
+        .setLngLat([lng, lat])
+        .setPopup(
+          new maplibregl.Popup({ offset: 14, closeButton: false, maxWidth: '260px' })
+            .setHTML(popupHtml)
+        )
+        .addTo(map);
+    });
+
+    map.fitBounds(bounds, { padding: 60, maxZoom: 5, duration: 0 });
+  });
+</script>
