@@ -4,10 +4,10 @@ Personal website of Serena Cofano — security researcher and PhD in software su
 
 Live at **[serenacofano.github.io](https://serenacofano.github.io)**
 
-![Secret Scanning](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/secret-scanning.yml/badge.svg)
-![OSV Scanner](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/osv-scanner.yml/badge.svg)
-![CodeQL](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/codeql.yml/badge.svg)
-![SBOM](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/sbom.yml/badge.svg)
+![Secret Scanning](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/secret-scanning.yml/badge.svg?branch=master)
+![OSV Scanner](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/osv-scanner.yml/badge.svg?branch=master)
+![CodeQL](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/codeql.yml/badge.svg?branch=master)
+![SBOM](https://github.com/serenacofano/serenacofano.github.io/actions/workflows/sbom.yml/badge.svg?branch=master)
 ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/serenacofano/serenacofano.github.io/badge)
 
 ---
