@@ -198,7 +198,7 @@ const publications = pubs.sort((a, b) => b.data.date.getTime() - a.data.date.get
     <section class="bg-mint-100 py-20">
       <div class="max-w-5xl mx-auto px-6">
         <h2 class="text-3xl font-bold text-ink-900 mb-10 reveal">Skills</h2>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {Object.entries(profile.skills).map(([category, items], i) => (
             <div class="reveal" style={`--reveal-delay: ${i * 100}ms`}>
               <h3 class="text-coral-600 font-semibold text-xs uppercase tracking-widest mb-4">{category}</h3>
