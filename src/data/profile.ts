@@ -65,8 +65,7 @@ export const profile = {
   bio: `I recently completed my PhD in Cybersecurity at IMT School for Advanced Studies Lucca
 and the University of Genoa, where I specialized in Software Supply Chain Security.
 My research focused on SBOM generation and its impact on vulnerability assessment in
-Python ecosystems. I am now looking for industry roles as a security engineer or
-software engineer in Belgium or remote.`,
+Python ecosystems.`,
 
   education: [
     {
